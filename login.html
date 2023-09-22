@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Wortliste</title>
+        
+        <!-- font-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!-- Css style file -->
+        <link href="css/admin.css" rel="stylesheet" type="text/css" />
+
+        <!-- JQuery lib -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <!-- icon font lib-->
+        <script src="https://kit.fontawesome.com/d2b8e1d5c1.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        <!-- firebase -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script src="js/init-firebase.js"></script>
+
+
+        <!-- App Content -->
+
+        <!-- total count of words -->
+        <div id="back">
+            <a href="index.html" >
+                <i class="fas fa-arrow-left fa-2x"></i>
+            </a>
+        </div>
+
+        <div id="container">
+            <div id="form-area">
+                <form id="addNewWordForm" >
+                    <div class="field-group">
+                        <h2>Login</h2>
+                    </div>
+                    <div class="field-group">
+                        <input id="email" type="email" placeholder="email" />
+                    </div>
+                    <div class="field-group">
+                        <input id="password" type="password" placeholder="password"/>
+                    </div>
+                    <div class="">
+                        <input id="submit" type="submit" value="Login" style="margin-bottom: 10px;"/>
+                    </div>
+                    <span id="info" ></span>
+                </form>
+            </div>
+        </div>
+        <script src="js/login.js"></script>
+    </body>
+</html>

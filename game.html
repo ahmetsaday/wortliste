@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Wortliste</title>
+        
+        <!-- font-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!-- Css style file -->
+        <link href="css/game.css" rel="stylesheet" type="text/css" />
+
+        <!-- JQuery lib -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <!-- icon font lib-->
+        <script src="https://kit.fontawesome.com/d2b8e1d5c1.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        <!-- firebase -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script src="js/init-firebase.js"></script>
+
+
+        <!-- App Content -->
+
+        <!-- back button -->
+        <div id="back">
+            <a href="index.html" >
+                <i class="fas fa-arrow-left fa-2x"></i>
+            </a>
+        </div>
+        <!-- score -->
+        <div id="true">
+            <label><span>0&nbsp;</span> true</label>
+        </div>
+        <div id="false">
+            <label><span>0</span> false</label>
+        </div>
+
+        <div id="container">
+            <div id="game-card">
+                <div id="question-card">
+                    <p>some new word</p>
+                </div>
+                <div id="answer">
+                    <div id="first-answer">
+                        <p>first answer</p>
+                    </div>
+                    <div id="timer">
+                        <div id="number">OR</div>
+                    </div>
+                    <div id="second-answer">
+                        <p>second answer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/game.js"></script>
+    </body>
+</html>

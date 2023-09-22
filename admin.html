@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Wortliste</title>
+        
+        <!-- font-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!-- Css style file -->
+        <link href="css/admin.css" rel="stylesheet" type="text/css" />
+
+        <!-- JQuery lib -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- icon font lib-->
+        <script src="https://kit.fontawesome.com/d2b8e1d5c1.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        <!-- firebase -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script src="js/init-firebase.js"></script>
+        
+        <!-- App Content -->
+
+        <!-- backward -->
+        <div id="back">
+            <a href="index.html" >
+                <i class="fas fa-arrow-left fa-2x"></i>
+            </a>
+        </div>
+        <!-- logout -->
+        <div id="logout"><i class="fas fa-sign-out-alt fa-2x"></i></div>
+
+
+        <div id="backup">
+            <i class="fas fa-cloud-download-alt fa-2x"></i>
+        </div>
+
+
+
+
+    <div id="container">
+        <div class="form-area">
+            <form id="addNewWordForm" autocomplete="off">
+                <div class="field-group">
+                    <h2>New Word</h2>
+                </div>
+                <div class="field-group">
+                    <input id="word-input" type="text" placeholder="word..." />
+                </div>
+                <div class="field-group">
+                    <input id="description-input" type="text" placeholder="description..."/>
+                </div>
+                <div class="field-group">
+                    <input id="example-input" type="text" placeholder="example..."/>
+                </div>
+                <div class="field-group">
+                    <input id="meaning-input" type="text" placeholder="meaining..."/>
+                </div>
+                <div class="">
+                    <input class="submit" type="submit" value="Add" style="margin-bottom: 10px;"/>
+                </div>
+                <span class="add-info" ></span>
+            </form>
+        </div>
+        
+        <br>
+
+        <!-- search -->
+        <div id="search-area" class="form-area">
+            <form id="searchWordForm" autocomplete="off">
+                <div class="field-group">
+                    <h2>Search Word</h2>
+                </div>
+                <div class="field-group">
+                    <input id="search-input" type="text" placeholder="Search the word that want to update" />
+                </div>
+                <div class="">
+                    <input class="submit" type="submit" value="Search" style="margin-bottom: 10px;"/>
+                </div>
+                <span class="search-info" ></span>
+            </form>
+        </div>
+
+        <!-- update -->
+        <div id="update-area" class="form-area" style="margin-bottom: 20%;">
+            <form id="updateWordForm" autocomplete="off">
+                <div class="field-group">
+                    <h2>Update Word</h2>
+                </div>
+                <div class="field-group">
+                    <input id="update-word-input" type="text" placeholder="word..." />
+                </div>
+                <div class="field-group">
+                    <input id="update-description-input" type="text" placeholder="description..."/>
+                </div>
+                <div class="field-group">
+                    <input id="update-example-input" type="text" placeholder="example..."/>
+                </div>
+                <div class="field-group">
+                    <input id="update-meaning-input" type="text" placeholder="meaining..."/>
+                </div>
+                <div class="">
+                    <input class="submit" type="submit" value="Update" style="margin-bottom: 10px;"/>
+                </div>
+                <span class="update-info" ></span>
+            </form>
+        </div>
+    </div>
+        <script src="js/admin.js"></script>
+    </body>
+</html>

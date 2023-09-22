@@ -1,0 +1,239 @@
+<html>
+    <head>
+        <!-- website name -->
+        <title>Wortliste</title>
+        <!-- Charset Setting -->
+        <meta charset="utf-8">
+        
+        <!-- font-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!-- Css style file -->
+        <link href="css/index.css" rel="stylesheet" type="text/css" />
+        <!-- Modal css style file -->
+        <link href="css/modal.css" rel="stylesheet" type="text/css" />
+        <!-- Mobil Menu -->
+        <link href="css/menu.css" rel="stylesheet" type="text/css" />
+        
+
+        <!-- JQuery lib -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <!-- icon font lib-->
+        <script src="https://kit.fontawesome.com/d2b8e1d5c1.js" crossorigin="anonymous"></script>
+
+        <style>
+            .switch {
+              position: relative;
+              display: inline-block;
+              width: 60px;
+              height: 34px;
+            }
+            
+            .switch input { 
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+            
+            .slider {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: #ccc;
+              -webkit-transition: .4s;
+              transition: .4s;
+            }
+            
+            .slider:before {
+              position: absolute;
+              content: "";
+              height: 26px;
+              width: 26px;
+              left: 4px;
+              bottom: 4px;
+              background-color: white;
+              -webkit-transition: .4s;
+              transition: .4s;
+            }
+            
+            input:checked + .slider {
+              background-color: #2196F3;
+            }
+            
+            input:focus + .slider {
+              box-shadow: 0 0 1px #2196F3;
+            }
+            
+            input:checked + .slider:before {
+              -webkit-transform: translateX(26px);
+              -ms-transform: translateX(26px);
+              transform: translateX(26px);
+            }
+            
+            /* Rounded sliders */
+            .slider.round {
+              border-radius: 34px;
+            }
+            
+            .slider.round:before {
+              border-radius: 50%;
+            }
+            </style>
+    </head>
+    <body onload="setup()">
+
+        <!-- firebase -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script src="js/init-firebase.js"></script>
+
+
+        <!-- App Content -->
+
+        <!-- Top Area -->
+        <a id="top" style="position: absolute; top: 0px;"></a>
+
+        <!-- total count of words -->
+        <div id="count"></div>
+        <!-- mixing the word list -->
+        <div id="mix"><i class="fas fa-random fa-2x"></i></div>
+        <!-- gamification -->
+        <div id="game"><i class="fas fa-gamepad fa-2x"></i></div>
+        <!-- swipe game -->
+        <div id="focus"><i class="fas fa-bookmark fa-2x"></i></div>
+        <!-- admin link -->
+        <div id="admin"><a href="login.html" ><i class="fas fa-user-cog"></i></a></div>
+        
+        <!-- Pagination -->
+        <div id="page-area">
+            
+            <ul class="page-area-ul"></ul>
+
+            <div id="page-mix">
+                <i class="fas fa-exchange-alt fa-2x"></i>
+            </div>
+        </div>
+        <!-- word list-->
+        <div id="container">
+            <!-- <h1>Saday is keep learning the new 1000 words</h1> -->
+        </div>
+        
+        <!-- bact to top -->
+        <div id="top-button">
+            <a  href="#top" ><i class="fas fa-arrow-up"></i></a>
+        </div>
+
+
+        <!-- Word Modal -->
+        <div id="wordModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                 <p id="show_word"></p>
+            </div>
+        </div>
+
+        <!-- Rank Modal -->
+        <div id="rankModal" class="rank-modal">
+            <!-- Modal content -->
+            <div class="rank-modal-content">
+                <div id="ranks" >
+
+
+                    <!-- <div class="rank">
+                        <img class="rank-image" src="images/lieutenant.jpg"/>
+                    </div>
+                     <div id="current-rank" class="rank">
+                         <img class="rank-image" src="images/major.jpg"/>
+                         
+                             <h2 style="margin-bottom: 2px;">Major</h2>
+                             <h6 style="margin-top: 0px;">Current Rank</h6>
+                         
+                     </div>
+                     <div class="rank">
+                         <img class="rank-image" src="images/colonel.jpg"/>
+                     </div> -->
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- Focus Modal -->
+        <div id="focusModal" class="focus-modal">
+            <!-- Modal content -->
+            <div class="focus-modal-content">
+                <div id="form-area" >
+
+
+                    <!-- <div class="rank">
+                        <img class="rank-image" src="images/lieutenant.jpg"/>
+                    </div>
+                    <div id="current-rank" class="rank">
+                        <img class="rank-image" src="images/major.jpg"/>
+                        
+                            <h2 style="margin-bottom: 2px;">Major</h2>
+                            <h6 style="margin-top: 0px;">Current Rank</h6>
+                        
+                    </div>
+                    <div class="rank">
+                        <img class="rank-image" src="images/colonel.jpg"/>
+                    </div> -->
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Mobil Menu -->
+        <div class="nav-wrapper">
+            <nav>
+                <div class="navigation">
+                    <ul class="nav-items">
+                        <li><a id="menu-mix" >Mix</a></li>
+                        <li><a href="focus.html">Focus</a></li>
+                        <li><a href="login.html">Admin</a></li>
+                    </ul>
+                    <div class="nav-toogler"></div>
+                </div>
+            </nav>
+        </div>
+
+
+        <!-- Main js file -->
+        <script src="js/index.js"></script>
+        <!-- Modal -->
+        <script src="js/modal.js"></script>
+        <!-- Rank Modal -->
+        <script src="js/rank.js"></script>
+        <!-- Focus Modal -->
+        <script src="js/focus-modal.js"></script>
+        <!-- Mobil Menu -->
+        <script src="js/menu.js"></script>
+        <!-- Speak api-->
+        <script type="text/javascript" src="https://code.responsivevoice.org/responsivevoice.js?key=HIGKUgdB"></script>
+    </body>
+</html>
